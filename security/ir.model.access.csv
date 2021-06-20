@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+
+access_bista_trainee_access_all_trainee,access_bista_trainee_access_all_trainee,model_bista_trainee,bista_training.bista_trainee_access_all,1,1,1,1
