@@ -10,21 +10,29 @@ class Trainee(models.Model):
     _name = 'bista.trainee'
     _description = 'Trainee Master Description.'
     _sql_constraints = [
-        ('trainee_id_unique', 'unique(trainee_id)', 'Trainee ID already exists!')
+        ('trainee_id_code_unique', 'unique(trainee_id_code)', 'Trainee ID already exists!')
     ]
 
     name = fields.Char(string='Name', compute='_get_full_name')
     first_name = fields.Char(string='First Name', required=True)
     last_name = fields.Char(string='Last Name')
-    trainee_id = fields.Char(string='Trainee ID', readonly=True)
+    trainee_id_code = fields.Char(string='Trainee ID', readonly=True)
     emp_code = fields.Char(string='EMP Code')
     email = fields.Char(string='Personal Email ID', required=True)
     linkedin_url = fields.Char(string='Linked In Profile URL')
-    gender = fields.Selection([('m', 'Male'), 
-                                ('f', 'Female')], 
+    gender = fields.Selection([('male', 'Male'), 
+                                ('female', 'Female')], 
                                 string='Gender', default='m', required=True)
     dob = fields.Date(string='DOB', required=True)
     date_of_joining = fields.Date(string='Date of Joining')
+    location_id = fields.Many2one('bista.location', string='Location')
+    designation_id = fields.Many2one('bista.trainee.role', string='Designation', required=True)
+    img = fields.Binary(string='Profile Image', attachment=True)
+    status = fields.Selection([('new', 'New'), 
+                                ('training', 'Training'),
+                                ('rejected', 'Rejected'),
+                                ('employeed', 'Employeed')], string='Status')
+
 
     def full_name(self):
         first_name = ''
@@ -58,7 +66,7 @@ class Trainee(models.Model):
         prefix = 'TRN'
         val = randint(100000, 999999)
         data = prefix + str(val)
-        values['trainee_id'] = data
+        values['trainee_id_code'] = data
         return super(Trainee, self).create(values)
 
     # @api.model 
@@ -71,7 +79,7 @@ class Trainee(models.Model):
     #     else:
     #         val += 1
     #     n = 7-(len(str(val)))
-    #     values['trainee_id'] = prefix + ('0'*n) + str(val)
+    #     values['trainee_id_code'] = prefix + ('0'*n) + str(val)
     #     return super(Trainee, self).create(values)
     
 

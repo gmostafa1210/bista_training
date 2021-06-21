@@ -69,7 +69,6 @@
                                 <strong class="o_kanban_record_title"><field name="display_name"/></strong>
                                 <div class="o_kanban_tags_section"/>
                                 <ul>
-                                    <li><strong>Name: </strong><field name="name"/></li>
                                     <li><strong>First Name: </strong><field name="first_name"/></li>
                                     <li><strong>Last Name: </strong><field name="last_name"/></li>
                                 </ul>

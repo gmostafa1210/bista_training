@@ -13,6 +13,8 @@
 
         'views/trainee_views.xml',
         'views/trainer_views.xml',
+        'views/location_views.xml',
+        'views/role_views.xml',
     ],
     'installable' : True,
     'application' : True,

@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
-                <field name="trainee_id"/>
+                <field name="trainee_id_code"/>
                 <field name="emp_code"/>
                 <field name="email"/>
                 <field name="date_of_joining"/>
@@ -22,9 +22,14 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
-                <field name="trainee_id"/>
+                <field name="trainee_id_code"/>
                 <field name="emp_code"/>
                 <field name="email"/>
+                <field name="location_id"/>
+                <field name="designation_id"/>
+
+                <filter string='Location' name='group_by_bista_location' context='{"group_by":"location_id"}'/>
+                <filter string='Designation' name='group_by_bista_designation' context='{"group_by":"designation_id"}'/>
             </search>
         </field>
     </record>
@@ -36,16 +41,24 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="first_name"/>
-                        <field name="last_name"/>
-                        <field name="name"/>
-                        <field name="trainee_id"/>
-                        <field name="emp_code"/>
-                        <field name="email"/>
-                        <field name="linkedin_url"/>
-                        <field name="gender"/>
-                        <field name="dob"/>
-                        <field name="date_of_joining"/>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="name"/>
+                            <field name="trainee_id_code"/>
+                            <field name="emp_code"/>
+                            <field name="email"/>
+                            <field name="linkedin_url"/>
+                            <field name="gender"/>
+                            <field name="dob"/>
+                        </group>
+                        <group>
+                            <field name="img" widget="image" class="oe_avatar"/>
+                            <field name="date_of_joining"/>
+                            <field name="location_id"/>
+                            <field name="designation_id"/>
+                            <field name="status"/>
+                        </group>
                     </group>    
                 </sheet>
             </form>
@@ -59,22 +72,33 @@
             <kanban class="o_kanban_mobile">
                 <field name="id"/>
                 <field name="name"/>
-                <field name="trainee_id"/>
+                <field name="trainee_id_code"/>
                 <field name="email"/>
                 <field name="gender"/>
                 <field name="dob"/>
                 <field name="date_of_joining"/>
+                <field name="location_id"/>
+                <field name="img"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div t-attf-class="oe_kanban_global_click">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_bista_trainee_kanban">
+                            <t t-if="record.img.raw_value">
+                                <div class="o_kanban_image_fill_left d-none d-md-block"
+                                     t-attf-style="background-image:url('#{kanban_image('bista.trainee', 'img', record.id.raw_value)}')"/>
+                            </t>
+                            <t t-else="">
+                                <img class="o_kanban_image" alt="Avatar" t-att-src='_s + "/base/static/img/avatar.png"'/>
+                            </t>
                             <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title"><field name="display_name"/></strong>
+                                <div class="o_kanban_tags_section"/>
                                 <ul>
-                                    <li><strong>Name: </strong><field name="name"/></li>
-                                    <li><strong>Trainee ID: </strong><field name="trainee_id"/></li>
-                                    <li><strong>Personal Email ID: </strong><field name="email"/></li>
+                                    <li><strong>Trainee ID: </strong><field name="trainee_id_code"/></li>
+                                    <li><strong>Email: </strong><field name="email"/></li>
                                     <li><strong>Gender: </strong><field name="gender"/></li>
                                     <li><strong>DOB: </strong><field name="dob"/></li>
                                     <li><strong>Date of Joining: </strong><field name="date_of_joining"/></li>
+                                    <li><strong>Location: </strong><field name="location_id"/></li>
                                 </ul>
                             </div>
                         </div>
@@ -88,11 +112,6 @@
         <field name="name">Trainee</field>
         <field name="res_model">bista.trainee</field>
         <field name="view_mode">kanban,tree,form</field>
-        <!-- <field name='context'>
-            {
-                'default_trainee_id':'TRAINEE-',
-            }
-        </field> -->
     </record>
 
     <menuitem 

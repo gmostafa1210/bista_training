@@ -2,3 +2,5 @@
 
 from . import trainee
 from . import trainer
+from . import location
+from . import role
