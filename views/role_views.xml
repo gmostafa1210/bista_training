@@ -50,6 +50,6 @@
         action='action_bista_training_management_system_role' 
         name='Designation/Role'
         parent='menu_bista_training_management_system'
-        sequence='3'/>
+        sequence='4'/>
 
 </odoo>

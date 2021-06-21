@@ -8,13 +8,15 @@
     'description' : 'Bista Training Management System - BGD Description.',
     'depends' : ['base'],
     'data' : [
-        'security/training_management_security.xml',
+        'security/training_security.xml',
         'security/ir.model.access.csv',
 
         'views/trainee_views.xml',
         'views/trainer_views.xml',
         'views/location_views.xml',
         'views/role_views.xml',
+        'views/subject_views.xml',
+        'views/topics_views.xml',
     ],
     'installable' : True,
     'application' : True,

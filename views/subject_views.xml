@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_bista_subject_tree" model="ir.ui.view">
+        <field name="name">bista.training.subject.tree</field>
+        <field name="model">bista.training.subject</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_bista_subject_search" model="ir.ui.view">
+        <field name="name">bista.training.subject.search</field>
+        <field name="model">bista.training.subject</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="topics_ids"/>
+                <field name="trainers_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_bista_subject_form" model="ir.ui.view" >
+        <field name="name">bista.training.subject.form</field>
+        <field name="model">bista.training.subject</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="topics_ids" widget="many2many_tags"/>
+                            <field name="trainers_ids"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bista_training_management_system_subject" model="ir.actions.act_window">
+        <field name="name">Subject</field>
+        <field name="res_model">bista.training.subject</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id='menu_bista_training_management_system_subject' 
+        action='action_bista_training_management_system_subject' 
+        name='Subject'
+        parent='menu_bista_training_management_system'
+        sequence='5'/>
+
+</odoo>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_bista_topics_tree" model="ir.ui.view">
+        <field name="name">bista.training.topics.tree</field>
+        <field name="model">bista.training.topics</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="subject_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_bista_topics_search" model="ir.ui.view">
+        <field name="name">bista.training.topics.search</field>
+        <field name="model">bista.training.topics</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="subject_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_bista_topics_form" model="ir.ui.view" >
+        <field name="name">bista.training.topics.form</field>
+        <field name="model">bista.training.topics</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="subject_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bista_training_management_system_topics" model="ir.actions.act_window">
+        <field name="name">Topics</field>
+        <field name="res_model">bista.training.topics</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id='menu_bista_training_management_system_topics' 
+        action='action_bista_training_management_system_topics' 
+        name='Topics'
+        parent='menu_bista_training_management_system'
+        sequence='6'/>
+
+</odoo>

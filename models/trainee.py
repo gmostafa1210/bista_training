@@ -3,8 +3,8 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 from datetime import date
-import re
 from random import randint
+import re
 
 class Trainee(models.Model):
     _name = 'bista.trainee'
