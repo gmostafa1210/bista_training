@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_bista_trainer_tree" model="ir.ui.view">
+        <field name="name">bista.trainer.tree</field>
+        <field name="model">bista.trainer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_bista_trainer_search" model="ir.ui.view">
+        <field name="name">bista.trainer.search</field>
+        <field name="model">bista.trainer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="first_name"/>
+                <field name="last_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_bista_trainer_form" model="ir.ui.view" >
+        <field name="name">bista.trainer.form</field>
+        <field name="model">bista.trainer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="name"/>
+                        </group>
+                         <group>
+                            <field name='img' widget='image' class='oe_avatar'/>
+                        </group>
+                    </group>    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bista_trainer_kanban" model="ir.ui.view">
+        <field name="name">bista.trainer.kanban</field>
+        <field name="model">bista.trainer</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="img"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_bista_trainer_kanban">
+                            <t t-if="record.img.raw_value">
+                                <div class="o_kanban_image_fill_left d-none d-md-block"
+                                     t-attf-style="background-image:url('#{kanban_image('bista.trainer', 'img', record.id.raw_value)}')"/>
+                            </t>
+                            <t t-else="">
+                                <img class="o_kanban_image" alt="Avatar" t-att-src='_s + "/base/static/img/avatar.png"'/>
+                            </t>
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title"><field name="display_name"/></strong>
+                                <div class="o_kanban_tags_section"/>
+                                <ul>
+                                    <li><strong>Name: </strong><field name="name"/></li>
+                                    <li><strong>First Name: </strong><field name="first_name"/></li>
+                                    <li><strong>Last Name: </strong><field name="last_name"/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_bista_training_management_system_trainer" model="ir.actions.act_window">
+        <field name="name">Trainer</field>
+        <field name="res_model">bista.trainer</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem 
+        id='menu_bista_training_management_system_trainer' 
+        action='action_bista_training_management_system_trainer' 
+        name='Trainer'
+        parent='menu_bista_training_management_system'
+        sequence='2'/>
+
+</odoo>

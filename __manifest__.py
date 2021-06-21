@@ -12,6 +12,7 @@
         'security/ir.model.access.csv',
 
         'views/trainee_views.xml',
+        'views/trainer_views.xml',
     ],
     'installable' : True,
     'application' : True,
