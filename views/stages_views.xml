@@ -26,13 +26,13 @@
 
                     <button id='button_training_complated' name='action_training_complated' string='Training Complated' type='object' class='btn-primary'/>
 
-                    <button id='button_employed' name='action_employed' string='Employed' type='object' class='btn-success'/>
+                    <button id='button_employed' name='action_employed' string='Employed' type='object' class='btn-primary'/>
 
                     <field name='status' widget='statusbar' statusbar_visible='draft,progress,done'/>
                 </header>
                 <sheet>
                     <group>
-                        <field name="name" attrs="{'readonly': [('status', 'in', ('progress', 'done'))]}" required="True"/>
+                        <field name="name" attrs="{'readonly': [('status', 'in', ('progress', 'done'))]}"/>
                         <field name="on_batch" attrs="{'readonly': [('status', 'in', ('progress', 'done'))]}"/>
                         <field name="on_training_record" attrs="{'readonly': [('status', 'in', ('progress', 'done'))]}"/>
                     </group>

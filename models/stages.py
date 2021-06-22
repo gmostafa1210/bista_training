@@ -6,7 +6,7 @@ class TrainingStages(models.Model):
 	_name = 'bista.training.stages'
 	_description = 'Training Stages Master Description.'
 
-	name = fields.Char(string='Stage Name')
+	name = fields.Char(string='Stage Name', required="True")
 	on_batch = fields.Boolean(string='Available on Batch')
 	on_training_record = fields.Boolean(string='Available on Training Record')
 
