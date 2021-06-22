@@ -6,3 +6,4 @@ from . import location
 from . import role
 from . import subject
 from . import topics
+from . import stages

@@ -17,6 +17,7 @@
         'views/role_views.xml',
         'views/subject_views.xml',
         'views/topics_views.xml',
+        'views/stages_views.xml',
     ],
     'installable' : True,
     'application' : True,
