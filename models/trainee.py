@@ -72,7 +72,11 @@ class Trainee(models.Model):
             values['trainee_id_code'] = self.env['ir.sequence'].next_by_code('bista.trainee.sequence') or _('New')
         return super(Trainee, self).create(values)
 
-    def action_create_employee(self):
+
+    def action_bista_training(self):
+        self.state = 'training'
+
+    def action_bista_employeed(self):
         self.env['hr.employee'].create(dict(
             name=self.name,
             image_1920 = self.img,
@@ -81,5 +85,9 @@ class Trainee(models.Model):
             gender = self.gender,
         ))
         self.state = 'employeed'
+
+    def action_bista_rejected(self):
+        self.state = 'rejected'
+        
     
 
