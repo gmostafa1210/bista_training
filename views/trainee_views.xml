@@ -58,6 +58,7 @@
                             <field name="location_id"/>
                             <field name="designation_id"/>
                             <field name="status"/>
+                            <field name="related_user_id"/>
                         </group>
                     </group>    
                 </sheet>
@@ -122,6 +123,7 @@
         id='menu_bista_training_management_system_trainee' 
         action='action_bista_training_management_system_trainee' 
         name='Trainee'
+        groups="bista_training.bista_training_access_trainee,bista_training.bista_training_access_all"
         parent='menu_bista_training_management_system'
         sequence='1'/>
 

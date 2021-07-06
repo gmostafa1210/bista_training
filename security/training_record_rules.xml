@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="record_rules_bista_trainer_group" model="ir.rule" >
+        <field name="name">Record</field>
+        <field name="model_id" ref="model_bista_trainee"/>
+        <field name="domain_force">[('related_user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('bista_training_access_trainee'))]"/>
+        <!-- <field name="perm_create" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="0"/>
+        <field name="perm_read" eval="1"/> -->
+    </record>
+
+    <record id="record_rules_bista_trainer_group_admin" model="ir.rule" >
+        <field name="name">Record Rule of TRAINER for bista.trainee</field>
+        <field name="model_id" ref="model_bista_trainee"/>
+        <field name="groups" eval="[(4, ref('bista_training_access_all'))]"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_read" eval="1"/>
+    </record>
+
+    <record id="record_rules_bista_trainer_groupnn" model="ir.rule" >
+        <field name="name">Record2</field>
+        <field name="model_id" ref="model_bista_training_subject"/>
+        <!-- <field name="domain_force">[('related_user_id','=',user.id)]</field> -->
+        <field name="groups" eval="[(4, ref('bista_training_access_trainee'))]"/>
+        <!-- <field name="perm_create" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="0"/>
+        <field name="perm_read" eval="1"/> -->
+    </record>
+
+</odoo>

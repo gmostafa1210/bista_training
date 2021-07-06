@@ -33,6 +33,8 @@ class Trainee(models.Model):
                                 ('rejected', 'Rejected'),
                                 ('employeed', 'Employeed')], string='Status')
 
+    related_user_id = fields.Many2one('res.users', string='Related User')
+
 
     def full_name(self):
         first_name = ''

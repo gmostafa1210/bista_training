@@ -7,9 +7,23 @@
         <field name='sequence'>1</field>
     </record>
 
-    <record id='bista_training_access_all' model='res.groups'>
-        <field name='name'>All User</field>
+    <record id='bista_training_access_trainee' model='res.groups'>
+        <field name='name'>Trainee</field>
         <field name='implied_ids' eval='[(4, ref("base.group_user"))]'/>
+        <field name='category_id' ref='bista_training.bista_training_access'/>
+        <field name='users' eval='[(4, ref("base.user_admin"))]'/>
+    </record>
+
+    <record id='bista_training_access_trainer' model='res.groups'>
+        <field name='name'>Trainer</field>
+        <field name='implied_ids' eval='[(4, ref("base.group_user"))]'/>
+        <field name='category_id' ref='bista_training.bista_training_access'/>
+        <field name='users' eval='[(4, ref("base.user_admin"))]'/>
+    </record>
+
+    <record id='bista_training_access_admin' model='res.groups'>
+        <field name='name'>Admin</field>
+        <field name='implied_ids' eval="[(4, ref('bista_training.bista_training_access_trainee')), (4, ref('bista_training.bista_training_access_trainer'))]"/>
         <field name='category_id' ref='bista_training.bista_training_access'/>
         <field name='users' eval='[(4, ref("base.user_admin"))]'/>
     </record>

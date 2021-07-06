@@ -1,9 +1,23 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
 
-access_bista_training_access_all_trainee,access_bista_training_access_all_trainee,model_bista_trainee,bista_training.bista_training_access_all,1,1,1,1
 
-access_bista_training_access_all_trainer,access_bista_training_access_all_trainer,model_bista_trainer,bista_training.bista_training_access_all,1,1,1,1
+access_bista_trainee_trainee,access_bista_trainee_trainee,model_bista_trainee,bista_training.bista_training_access_trainee,1,1,0,0
+
+access_bista_trainee_trainer,access_bista_trainee_trainer,model_bista_trainee,bista_training.bista_training_access_trainer,1,1,1,1
+
+access_bista_trainee_admin,access_bista_trainee_admin,model_bista_trainee,bista_training.bista_training_access_admin,1,1,1,1
+
+
+access_bista_trainer_trainee,access_bista_trainer_trainee,model_bista_trainer,bista_training.bista_training_access_trainee,1,1,0,0
+
+access_bista_trainer_trainer,access_bista_trainer_trainer,model_bista_trainer,bista_training.bista_training_access_trainer,1,1,1,1
+
+access_bista_trainer_admin,access_bista_trainer_admin,model_bista_trainer,bista_training.bista_training_access_admin,1,1,1,1
+
+
+
+
 
 access_bista_training_access_all_location,access_bista_training_access_all_location,model_bista_location,bista_training.bista_training_access_all,1,1,1,1
 
