@@ -4,7 +4,8 @@
 
     <menuitem 
         id='menu_bista_training_management_system'
-        name='Bista Training Management System'/>
+        name='Bista Training Management System'
+        web_icon='bista_training,static/description/icon2.jpg'/>
 
 
     <record id="action_bista_training_management_system_trainee" model="ir.actions.act_window">

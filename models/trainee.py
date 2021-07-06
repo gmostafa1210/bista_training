@@ -10,28 +10,31 @@ class Trainee(models.Model):
     _name = 'bista.trainee'
     _description = 'Trainee Master Description.'
     _sql_constraints = [
-        ('trainee_id_code_unique', 'unique(trainee_id_code)', 'Trainee ID already exists!')
+        ('email_unique', 'unique(email)', 'Email already exists!'),
+        ('linkedin_url_unique', 'unique(linkedin_url)', 'LinkedIn ID already exists!')
     ]
 
     name = fields.Char(string='Name', compute='_get_full_name')
     first_name = fields.Char(string='First Name', required=True)
     last_name = fields.Char(string='Last Name')
-    trainee_id_code = fields.Char(string='Trainee ID', readonly=True)
+    trainee_id_code = fields.Char(string='Trainee ID', required=True, copy=False, readonly=True, index=True, default=lambda self: _('New'))
     emp_code = fields.Char(string='EMP Code')
     email = fields.Char(string='Personal Email ID', required=True)
     linkedin_url = fields.Char(string='Linked In Profile URL')
     gender = fields.Selection([('male', 'Male'), 
                                 ('female', 'Female')], 
-                                string='Gender', default='m', required=True)
+                                string='Gender', default='male', required=True)
     dob = fields.Date(string='DOB', required=True)
     date_of_joining = fields.Date(string='Date of Joining')
     location_id = fields.Many2one('bista.location', string='Location')
     designation_id = fields.Many2one('bista.trainee.role', string='Designation', required=True)
     img = fields.Binary(string='Profile Image', attachment=True)
-    status = fields.Selection([('new', 'New'), 
+
+    state = fields.Selection([('new', 'New'), 
                                 ('training', 'Training'),
                                 ('rejected', 'Rejected'),
-                                ('employeed', 'Employeed')], string='Status')
+                                ('employeed', 'Employeed')], 
+                                default='new', string='State')
 
     related_user_id = fields.Many2one('res.users', string='Related User')
 
@@ -65,23 +68,18 @@ class Trainee(models.Model):
 
     @api.model
     def create(self, values):
-        prefix = 'TRN'
-        val = randint(100000, 999999)
-        data = prefix + str(val)
-        values['trainee_id_code'] = data
+        if values.get('trainee_id_code', _('New')) == _('New'):
+            values['trainee_id_code'] = self.env['ir.sequence'].next_by_code('bista.trainee.sequence') or _('New')
         return super(Trainee, self).create(values)
 
-    # @api.model 
-    # def create(self, values):
-    #     prefix = "TRN" 
-    #     last_rec = self.env['bista.trainee'].search([], order='id desc', limit=1)
-    #     val = last_rec.id
-    #     if val == False:
-    #         val = 1
-    #     else:
-    #         val += 1
-    #     n = 7-(len(str(val)))
-    #     values['trainee_id_code'] = prefix + ('0'*n) + str(val)
-    #     return super(Trainee, self).create(values)
+    def action_create_employee(self):
+        self.env['hr.employee'].create(dict(
+            name=self.name,
+            image_1920 = self.img,
+            job_title= self.designation_id.name,
+            work_email = self.email,
+            gender = self.gender,
+        ))
+        self.state = 'employeed'
     
 

@@ -12,6 +12,8 @@
         'security/training_record_rules.xml',
         'security/ir.model.access.csv',
 
+        'data/sequence.xml',
+
         'views/bista_training_menus.xml',
         'views/trainee_views.xml',
         'views/trainer_views.xml',

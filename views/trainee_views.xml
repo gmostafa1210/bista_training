@@ -40,27 +40,48 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <header>
+                        <button string='Create as Employee' type='object' name='action_create_employee' states='new,training' class='btn btn-primary'/>
+
+                        <field name='state' widget='statusbar' statusbar_visible='new,training,rejected,employeed'/>
+                    </header>
+                    <div class="oe_title">
+                        <h1>
+                            <strong><field name='trainee_id_code'/></strong>
+                        </h1>
+                    </div>
                     <group>
                         <group>
-                            <field name="first_name"/>
-                            <field name="last_name"/>
-                            <field name="name"/>
-                            <field name="trainee_id_code"/>
-                            <field name="emp_code"/>
-                            <field name="email"/>
-                            <field name="linkedin_url"/>
-                            <field name="gender"/>
-                            <field name="dob"/>
+                            <field name='first_name'/>
+                            <field name='last_name'/>
+                            <field name='name'/>
+                            <field name='emp_code'/>
                         </group>
                         <group>
                             <field name="img" widget="image" class="oe_avatar"/>
-                            <field name="date_of_joining"/>
-                            <field name="location_id"/>
-                            <field name="designation_id"/>
-                            <field name="status"/>
-                            <field name="related_user_id"/>
                         </group>
-                    </group>    
+                    </group>
+                    <group>
+                        <notebook>
+                            <page string='Official Information'>
+                                <group>
+                                    <field name="related_user_id"/>
+                                    <field name="date_of_joining"/>
+                                    <field name="designation_id"/>
+                                    <!-- <field name="state"/> -->
+                                </group>
+                            </page>
+                            <page string='Personal Information'>
+                                <group>
+                                    <field name="email"/>
+                                    <field name="linkedin_url"/>
+                                    <field name="dob"/>
+                                    <field name="gender"/>
+                                    <field name="location_id"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>  
                 </sheet>
             </form>
         </field>
