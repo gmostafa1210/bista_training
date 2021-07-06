@@ -6,13 +6,13 @@
     'sequence' : 1,
     'summary': 'Bista Training Management System - BGD Summary.',
     'description' : 'Bista Training Management System - BGD Description.',
-    'depends' : ['base','contacts'],
+    'depends' : ['base'],
     'data' : [
         'security/training_security.xml',
-        # 'security/training_record_rules.xml',
+        'security/training_record_rules.xml',
         'security/ir.model.access.csv',
 
-        'views/bista_training_menus.xml'
+        'views/bista_training_menus.xml',
         'views/trainee_views.xml',
         'views/trainer_views.xml',
         'views/location_views.xml',
