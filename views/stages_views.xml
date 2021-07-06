@@ -41,17 +41,4 @@
         </field>
     </record>
 
-    <record id="action_bista_training_management_system_stages" model="ir.actions.act_window">
-        <field name="name">Stages</field>
-        <field name="res_model">bista.training.stages</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <menuitem 
-        id='menu_bista_training_management_system_stages' 
-        action='action_bista_training_management_system_stages' 
-        name='Stages'
-        parent='menu_bista_training_management_system'
-        sequence='7'/>
-
 </odoo>

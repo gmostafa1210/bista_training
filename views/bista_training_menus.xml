@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <menuitem 
+        id='menu_bista_training_management_system'
+        name='Bista Training Management System'/>
+
+
+    <record id="action_bista_training_management_system_trainee" model="ir.actions.act_window">
+        <field name="name">Trainee</field>
+        <field name="res_model">bista.trainee</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem 
+        id='menu_bista_training_management_system_trainee' 
+        action='action_bista_training_management_system_trainee' 
+        name='Trainee'
+        parent='menu_bista_training_management_system'
+        sequence='1'/>
+
+
+    <record id="action_bista_training_management_system_trainer" model="ir.actions.act_window">
+        <field name="name">Trainer</field>
+        <field name="res_model">bista.trainer</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem 
+        id='menu_bista_training_management_system_trainer' 
+        action='action_bista_training_management_system_trainer' 
+        name='Trainer'
+        parent='menu_bista_training_management_system'
+        sequence='2'/>
+
+
+    <record id="action_bista_training_management_system_location" model="ir.actions.act_window">
+        <field name="name">Location</field>
+        <field name="res_model">bista.location</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id='menu_bista_training_management_system_location' 
+        action='action_bista_training_management_system_location' 
+        name='Location'
+        parent='menu_bista_training_management_system'
+        sequence='3'/>
+
+
+    <record id="action_bista_training_management_system_role" model="ir.actions.act_window">
+        <field name="name">Designation/Role</field>
+        <field name="res_model">bista.trainee.role</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id='menu_bista_training_management_system_role' 
+        action='action_bista_training_management_system_role' 
+        name='Designation/Role'
+        parent='menu_bista_training_management_system'
+        sequence='4'/>
+
+
+    <record id="action_bista_training_management_system_subject" model="ir.actions.act_window">
+        <field name="name">Subject</field>
+        <field name="res_model">bista.training.subject</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id='menu_bista_training_management_system_subject' 
+        action='action_bista_training_management_system_subject' 
+        name='Subject'
+        parent='menu_bista_training_management_system'
+        sequence='5'/>
+
+
+    <record id="action_bista_training_management_system_topics" model="ir.actions.act_window">
+        <field name="name">Topics</field>
+        <field name="res_model">bista.training.topics</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id='menu_bista_training_management_system_topics' 
+        action='action_bista_training_management_system_topics' 
+        name='Topics'
+        parent='menu_bista_training_management_system'
+        sequence='6'/>
+
+
+    <record id="action_bista_training_management_system_stages" model="ir.actions.act_window">
+        <field name="name">Stages</field>
+        <field name="res_model">bista.training.stages</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id='menu_bista_training_management_system_stages' 
+        action='action_bista_training_management_system_stages' 
+        name='Stages'
+        parent='menu_bista_training_management_system'
+        sequence='7'/>
+
+</odoo>

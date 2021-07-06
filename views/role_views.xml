@@ -39,17 +39,4 @@
         </field>
     </record>
 
-    <record id="action_bista_training_management_system_role" model="ir.actions.act_window">
-        <field name="name">Designation/Role</field>
-        <field name="res_model">bista.trainee.role</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <menuitem 
-        id='menu_bista_training_management_system_role' 
-        action='action_bista_training_management_system_role' 
-        name='Designation/Role'
-        parent='menu_bista_training_management_system'
-        sequence='4'/>
-
 </odoo>

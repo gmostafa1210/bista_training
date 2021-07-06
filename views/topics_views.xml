@@ -39,17 +39,4 @@
         </field>
     </record>
 
-    <record id="action_bista_training_management_system_topics" model="ir.actions.act_window">
-        <field name="name">Topics</field>
-        <field name="res_model">bista.training.topics</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <menuitem 
-        id='menu_bista_training_management_system_topics' 
-        action='action_bista_training_management_system_topics' 
-        name='Topics'
-        parent='menu_bista_training_management_system'
-        sequence='6'/>
-
 </odoo>

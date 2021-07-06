@@ -109,22 +109,4 @@
         </field>
     </record>
 
-    <record id="action_bista_training_management_system_trainee" model="ir.actions.act_window">
-        <field name="name">Trainee</field>
-        <field name="res_model">bista.trainee</field>
-        <field name="view_mode">kanban,tree,form</field>
-    </record>
-
-    <menuitem 
-        id='menu_bista_training_management_system'
-        name='Bista Training Management System'/>
-
-    <menuitem 
-        id='menu_bista_training_management_system_trainee' 
-        action='action_bista_training_management_system_trainee' 
-        name='Trainee'
-        groups="bista_training.bista_training_access_trainee,bista_training.bista_training_access_all"
-        parent='menu_bista_training_management_system'
-        sequence='1'/>
-
 </odoo>

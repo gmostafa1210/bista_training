@@ -47,17 +47,4 @@
         </field>
     </record>
 
-    <record id="action_bista_training_management_system_location" model="ir.actions.act_window">
-        <field name="name">Location</field>
-        <field name="res_model">bista.location</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <menuitem 
-        id='menu_bista_training_management_system_location' 
-        action='action_bista_training_management_system_location' 
-        name='Location'
-        parent='menu_bista_training_management_system'
-        sequence='3'/>
-
 </odoo>

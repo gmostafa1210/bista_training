@@ -80,17 +80,4 @@
         </field>
     </record>
 
-    <record id="action_bista_training_management_system_trainer" model="ir.actions.act_window">
-        <field name="name">Trainer</field>
-        <field name="res_model">bista.trainer</field>
-        <field name="view_mode">kanban,tree,form</field>
-    </record>
-
-    <menuitem 
-        id='menu_bista_training_management_system_trainer' 
-        action='action_bista_training_management_system_trainer' 
-        name='Trainer'
-        parent='menu_bista_training_management_system'
-        sequence='2'/>
-
 </odoo>

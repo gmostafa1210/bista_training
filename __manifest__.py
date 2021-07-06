@@ -9,9 +9,10 @@
     'depends' : ['base','contacts'],
     'data' : [
         'security/training_security.xml',
-        'security/training_record_rules.xml',
+        # 'security/training_record_rules.xml',
         'security/ir.model.access.csv',
 
+        'views/bista_training_menus.xml'
         'views/trainee_views.xml',
         'views/trainer_views.xml',
         'views/location_views.xml',
