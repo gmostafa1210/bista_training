@@ -96,7 +96,7 @@
         <field name="name">bista.trainee.kanban</field>
         <field name="model">bista.trainee</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_mobile">
+            <kanban default_group_by='designation_id' class="o_kanban_mobile">
                 <field name="id"/>
                 <field name="name"/>
                 <field name="trainee_id_code"/>
@@ -114,7 +114,7 @@
                                      t-attf-style="background-image:url('#{kanban_image('bista.trainee', 'img', record.id.raw_value)}')"/>
                             </t>
                             <t t-else="">
-                                <img class="o_kanban_image" alt="Avatar" t-att-src='_s + "/base/static/img/avatar.png"'/>
+                                <img class="o_kanban_image" t-att-src='_s + "base/static/img/avatar.png"' alt="Avatar"/>
                             </t>
                             <div class="oe_kanban_details">
                                 <strong class="o_kanban_record_title"><field name="display_name"/></strong>

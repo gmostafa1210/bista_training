@@ -3,7 +3,6 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 from datetime import date
-from random import randint
 import re
 
 class Trainee(models.Model):
@@ -31,10 +30,10 @@ class Trainee(models.Model):
     img = fields.Binary(string='Profile Image', attachment=True)
 
     state = fields.Selection([('new', 'New'), 
-                                ('training', 'Training'),
-                                ('rejected', 'Rejected'),
-                                ('employeed', 'Employeed')], 
-                                default='new', string='State')
+                            ('training', 'Training'),
+                            ('employeed', 'Employeed'),
+                            ('rejected', 'Rejected')], 
+                            default='new', string='State')
 
     related_user_id = fields.Many2one('res.users', string='Related User')
 
@@ -74,19 +73,36 @@ class Trainee(models.Model):
 
 
     def action_bista_training(self):
+        self.env['bista.training.attendance'].create(dict(
+            name = self.name,
+            trainee_id_code = self.trainee_id_code,
+            state = 'training',
+        ))
         self.state = 'training'
 
     def action_bista_employeed(self):
         self.env['hr.employee'].create(dict(
-            name=self.name,
+            name = self.name,
             image_1920 = self.img,
             job_title= self.designation_id.name,
             work_email = self.email,
             gender = self.gender,
         ))
+        all_data = self.env['bista.training.attendance'].search([])
+        for data in all_data:
+            if data.trainee_id_code == self.trainee_id_code:
+                data.write({
+                    'state' : 'employeed'
+                })
         self.state = 'employeed'
 
     def action_bista_rejected(self):
+        all_data = self.env['bista.training.attendance'].search([])
+        for data in all_data:
+            if data.trainee_id_code == self.trainee_id_code:
+                data.write({
+                    'state' : 'rejected'
+                })
         self.state = 'rejected'
         
     

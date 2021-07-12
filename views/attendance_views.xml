@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_bista_attendance_tree" model="ir.ui.view">
+        <field name="name">bista.training.attendance.tree</field>
+        <field name="model">bista.training.attendance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="trainee_id_code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_bista_attendance_form" model="ir.ui.view" >
+        <field name="name">bista.training.attendance.form</field>
+        <field name="model">bista.training.attendance</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name='state' widget='statusbar' statusbar_visible='training,employeed,rejected'/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" attrs="{'readonly': [('state', 'in', ('training','employeed', 'rejected'))]}"/>
+                        <field name="trainee_id_code" attrs="{'readonly': [('state', 'in', ('training','employeed', 'rejected'))]}"/>
+                    </group>
+                    <notebook>
+                        <page string='Training Attendance'>
+                            <field name="attendance_line" attrs="{'readonly': [('state', 'in', ('employeed', 'rejected'))]}">
+                                <tree editable='bottom'>
+                                    <field name="date_of_attendance"/>
+                                    <field name="morning"/>
+                                    <field name="evening"/>
+                                    <field name="attendance_id" invisible='1'/>
+                                </tree>
+                                <form editable='bottom'>
+                                    <group>
+                                        <group>
+                                            <field name="date_of_attendance"/>
+                                        </group>
+                                        <group>
+                                            <field name="morning"/>
+                                            <field name="evening"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

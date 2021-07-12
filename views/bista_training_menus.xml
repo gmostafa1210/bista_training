@@ -105,4 +105,18 @@
         parent='menu_bista_training_management_system'
         sequence='7'/>
 
+    
+    <record id="action_bista_training_management_system_attendance" model="ir.actions.act_window">
+        <field name="name">Attendance</field>
+        <field name="res_model">bista.training.attendance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id='menu_bista_training_management_system_attendance' 
+        action='action_bista_training_management_system_attendance' 
+        name='Attendance'
+        parent='menu_bista_training_management_system'
+        sequence='8'/>
+
 </odoo>

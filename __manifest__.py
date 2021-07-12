@@ -22,6 +22,7 @@
         'views/subject_views.xml',
         'views/topics_views.xml',
         'views/stages_views.xml',
+        'views/attendance_views.xml',
     ],
     'installable' : True,
     'application' : True,

@@ -7,3 +7,4 @@ from . import role
 from . import subject
 from . import topics
 from . import stages
+from . import attendance
