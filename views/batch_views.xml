@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_bista_batch_tree" model="ir.ui.view">
+        <field name="name">bista.batch.tree</field>
+        <field name="model">bista.batch</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_bista_batch_form" model="ir.ui.view" >
+        <field name="name">bista.batch.form</field>
+        <field name="model">bista.batch</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="trainee_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

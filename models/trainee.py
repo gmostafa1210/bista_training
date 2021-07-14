@@ -35,6 +35,7 @@ class Trainee(models.Model):
                             ('rejected', 'Rejected')], 
                             default='new', string='State')
 
+    batch_id = fields.Many2one('bista.batch', string='Batch Name')
     related_user_id = fields.Many2one('res.users', string='Related User')
 
 

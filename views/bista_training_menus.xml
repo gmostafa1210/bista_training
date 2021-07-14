@@ -119,4 +119,33 @@
         parent='menu_bista_training_management_system'
         sequence='8'/>
 
+
+    <record id="action_bista_training_management_system_batch" model="ir.actions.act_window">
+        <field name="name">Batch</field>
+        <field name="res_model">bista.batch</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id='menu_bista_training_management_system_batch' 
+        action='action_bista_training_management_system_batch' 
+        name='Batch'
+        parent='menu_bista_training_management_system'
+        sequence='9'/>
+
+
+    <record id='action_bista_training_management_system_filter_batch' model='ir.actions.act_window'>
+        <field name='name'>Filter Batch</field>
+        <field name='res_model'>bista.filter.batch</field>
+        <field name='view_mode'>form</field>
+        <field name='target'>new</field>
+    </record>
+
+    <menuitem 
+        id='menu_bista_training_management_system_filter_batch' 
+        parent='menu_bista_training_management_system' 
+        action='action_bista_training_management_system_filter_batch'
+        name='Filter Batch'
+        sequence='10'/>
+
 </odoo>

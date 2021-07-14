@@ -62,6 +62,7 @@
                             <field name='last_name'/>
                             <field name='name'/>
                             <field name='emp_code'/>
+                            <field name='batch_id'/>
                         </group>
                         <group>
                             <field name="img" widget="image" class="oe_avatar"/>

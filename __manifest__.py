@@ -23,6 +23,9 @@
         'views/topics_views.xml',
         'views/stages_views.xml',
         'views/attendance_views.xml',
+        'views/batch_views.xml',
+
+        'wizard/filter_batch_views.xml',
     ],
     'installable' : True,
     'application' : True,
