@@ -8,6 +8,6 @@ class TrainingAttendance(models.Model):
     _description = 'Training Batch Master Description.'
 
     name = fields.Char(string='Batch Name')
-    trainee_ids = fields.One2many('bista.trainee', 'batch_id', string='Batch Name')
+    trainee_ids = fields.One2many('bista.trainee', 'batch_id', string='Trainee List')
 
     
